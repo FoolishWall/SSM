@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="njupt.test.ssm.dao.UserDao">
+    <!--通用SQL语句-->
+    <sql id="Base_Column_List">
+    user_id,user_name,user_password,user_role,create_time
+    </sql>
+    <!--登录校验-->
+    <select id="loginCheck" resultType="User" parameterType="map">
+        SELECT <include refid="Base_Column_List"/> FROM testuser
+        WHERE  user_id=#{userId} AND user_password=#{userPassword}
+    </select>
+
+</mapper>

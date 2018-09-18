@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace为包名+接口名
+    面向接口式编程-->
+<mapper namespace="njupt.test.ssm.dao.StudentDao">
+
+    <!--查询所有学生-->
+    <select id="showAllStudent"  resultType="Student">
+        SELECT student_id,student_name,student_classid FROM student
+    </select>
+
+    <!--根据学号查询单个学生-->
+    <select id="queryStudentById" resultType="Student">
+        SELECT  student_id,student_name,student_classid FROM student WHERE student_id=#{studentID}
+    </select>
+
+
+    <!--联合查询1-->
+    <select id="selectStudent" parameterType="Student" resultType="Student">
+        SELECT  student_id,student_name,student_classid FROM student
+        <where>
+            <if test="studentId!=null and studentId!='' ">
+                AND student_id=#{studentId}
+            </if>
+            <if test="studentName!=null and studentName !='' ">
+                AND student_name LIKE   '%' #{studentName} '%'
+            </if>
+            <if test="studentClassid!=null and studentClassid!='' ">
+                AND student_classid=#{studentClassid}
+            </if>
+        </where>
+    </select>
+
+    <!--联合查询2-->
+    <!--使用@param注释的多个参数值也会组装成一个map数据结构,和直接传递map进来没有区别。-->
+    <select id="selectStudentByParam"  parameterType="map" resultType="Student">
+        SELECT  student_id,student_name,student_classid FROM student
+        <where>
+            <if test="studentId!=null and studentId!='' ">
+                AND student_id=#{studentId}
+            </if>
+            <if test="studentName!=null and studentName !='' ">
+                AND student_name LIKE   '%' #{studentName} '%'
+            </if>
+            <if test="studentClassid!=null and studentClassid!='' ">
+                AND student_classid=#{studentClassid}
+            </if>
+        </where>
+    </select>
+
+</mapper>

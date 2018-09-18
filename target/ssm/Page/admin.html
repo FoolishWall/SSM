@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>登录成功界面</title>
+</head>
+<body>
+
+    <!--栅格布局-->
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4" style="font-size: large">
+            <div>
+                欢迎<span id="userName" style="color: red">&nbsp;&nbsp;</span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" id="showAllStudents">显示所有学生</button>
+            </div>
+            <div>
+                <!--添加表格-->
+                <!--条纹状表格-->
+                <table class="table table-hover table-responsive">
+                    <!--表头-->
+                    <thead>
+                    <tr class="info">
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>班级</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="showStudentsTable">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+<!--引入js-->
+<script type="text/javascript" src="/js/admin.js"></script>
+</body>
+</html>
